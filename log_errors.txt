@@ -1,0 +1,81 @@
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::               (v2.7.17)
+
+2023-10-29 23:11:49.958  INFO 5284 --- [           main] c.M.MySecondTestAppSpringBootApplication : Starting MySecondTestAppSpringBootApplication using Java 17.0.9 on DESKTOP-JQISN7S with PID 5284 (C:\homework\java\spring_2\target\classes started by user in C:\homework\java\spring_2)
+2023-10-29 23:11:49.961 DEBUG 5284 --- [           main] c.M.MySecondTestAppSpringBootApplication : Running with Spring Boot v2.7.17, Spring v5.3.30
+2023-10-29 23:11:49.961  INFO 5284 --- [           main] c.M.MySecondTestAppSpringBootApplication : No active profile set, falling back to 1 default profile: "default"
+2023-10-29 23:11:51.252  INFO 5284 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-10-29 23:11:51.253  INFO 5284 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.82]
+2023-10-29 23:11:51.379  INFO 5284 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-10-29 23:11:51.846  INFO 5284 --- [           main] c.M.MySecondTestAppSpringBootApplication : Started MySecondTestAppSpringBootApplication in 2.411 seconds (JVM running for 2.858)
+2023-10-29 23:12:03.147  INFO 5284 --- [nio-8082-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-10-29 23:12:03.329 ERROR 5284 --- [nio-8082-exec-1] r.c.M.controller.MyController            : Ошибка валидации: должно быть не больше 100000
+2023-10-29 23:12:03.330 ERROR 5284 --- [nio-8082-exec-1] r.c.M.controller.MyController            : Ошибка валидации: размер должен находиться в диапазоне от 0 до 32
+2023-10-29 23:12:03.330 ERROR 5284 --- [nio-8082-exec-1] r.c.M.controller.MyController            : Ошибка валидации: не должно быть пустым
+2023-10-29 23:12:03.331  INFO 5284 --- [nio-8082-exec-1] r.c.M.controller.MyController            : request: {uid='bc023defghijklmnopqrstuvwxyzabcdefg', operationUid='', systemName'null', systemTime='2022-04-06T09:00:00', source='null', communicationId=100001, templateId=0, productCode=0, smsCode=0}
+2023-10-29 23:12:03.342  INFO 5284 --- [nio-8082-exec-1] r.c.M.controller.MyController            : Response: Response(uid=bc023defghijklmnopqrstuvwxyzabcdefg, operationUid=, systemTime=2023-10-29T23:12:03.341Z, code=succes, errorCode=, errorMessage=EMPTY)
+2023-10-29 23:12:03.355 ERROR 5284 --- [nio-8082-exec-1] r.c.M.controller.MyController            : Ошибка: 
+
+ru.chernykh.MySecondTestAppSpringBoot.exception.ValidationFailedException: Field error in object 'request' on field 'communicationId': rejected value [100001]; codes [Max.request.communicationId,Max.communicationId,Max.int,Max]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [request.communicationId,communicationId]; arguments []; default message [communicationId],100000]; default message [должно быть не больше 100000]
+	at ru.chernykh.MySecondTestAppSpringBoot.service.RequestValidationService.isValid(RequestValidationService.java:13) ~[classes/:na]
+	at ru.chernykh.MySecondTestAppSpringBoot.controller.MyController.feedback(MyController.java:66) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.30.jar:5.3.30]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.30.jar:5.3.30]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.30.jar:5.3.30]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.30.jar:5.3.30]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.30.jar:5.3.30]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.30.jar:5.3.30]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1072) ~[spring-webmvc-5.3.30.jar:5.3.30]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:965) ~[spring-webmvc-5.3.30.jar:5.3.30]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.30.jar:5.3.30]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) ~[spring-webmvc-5.3.30.jar:5.3.30]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:555) ~[tomcat-embed-core-9.0.82.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.30.jar:5.3.30]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:623) ~[tomcat-embed-core-9.0.82.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:209) ~[tomcat-embed-core-9.0.82.jar:9.0.82]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.82.jar:9.0.82]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-9.0.82.jar:9.0.82]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.82.jar:9.0.82]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.82.jar:9.0.82]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.30.jar:5.3.30]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.30.jar:5.3.30]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.82.jar:9.0.82]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.82.jar:9.0.82]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.30.jar:5.3.30]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.30.jar:5.3.30]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.82.jar:9.0.82]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.82.jar:9.0.82]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.30.jar:5.3.30]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.30.jar:5.3.30]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.82.jar:9.0.82]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.82.jar:9.0.82]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168) ~[tomcat-embed-core-9.0.82.jar:9.0.82]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-9.0.82.jar:9.0.82]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:481) ~[tomcat-embed-core-9.0.82.jar:9.0.82]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130) ~[tomcat-embed-core-9.0.82.jar:9.0.82]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-9.0.82.jar:9.0.82]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-9.0.82.jar:9.0.82]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342) ~[tomcat-embed-core-9.0.82.jar:9.0.82]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:390) ~[tomcat-embed-core-9.0.82.jar:9.0.82]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-9.0.82.jar:9.0.82]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:928) ~[tomcat-embed-core-9.0.82.jar:9.0.82]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1794) ~[tomcat-embed-core-9.0.82.jar:9.0.82]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-9.0.82.jar:9.0.82]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.82.jar:9.0.82]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.82.jar:9.0.82]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.82.jar:9.0.82]
+	at java.base/java.lang.Thread.run(Thread.java:840) ~[na:na]
+
+2023-10-29 23:12:03.356  INFO 5284 --- [nio-8082-exec-1] r.c.M.controller.MyController            : Response: Response(uid=bc023defghijklmnopqrstuvwxyzabcdefg, operationUid=, systemTime=2023-10-29T23:12:03.341Z, code=succes, errorCode=, errorMessage=EMPTY)
+2023-10-29 23:12:03.356  INFO 5284 --- [nio-8082-exec-1] r.c.M.controller.MyController            : Response: Response(uid=bc023defghijklmnopqrstuvwxyzabcdefg, operationUid=, systemTime=2023-10-29T23:12:03.341Z, code=failed, errorCode=, errorMessage=EMPTY)
+2023-10-29 23:12:03.356  INFO 5284 --- [nio-8082-exec-1] r.c.M.controller.MyController            : Response: Response(uid=bc023defghijklmnopqrstuvwxyzabcdefg, operationUid=, systemTime=2023-10-29T23:12:03.341Z, code=failed, errorCode=ValidationException, errorMessage=EMPTY)
+2023-10-29 23:12:03.357  INFO 5284 --- [nio-8082-exec-1] r.c.M.controller.MyController            : Response: Response(uid=bc023defghijklmnopqrstuvwxyzabcdefg, operationUid=, systemTime=2023-10-29T23:12:03.341Z, code=failed, errorCode=ValidationException, errorMessage=VALIDATION)
